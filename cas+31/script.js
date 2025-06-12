@@ -1,19 +1,13 @@
 function pricist31Minut() {
-  const casInput = document.getElementById("cas").value;
-  if (!casInput) {
-    alert("Zadej prosím čas.");
+  const input = document.getElementById('cas').value;
+  if (!input) {
+    document.getElementById('vysledek').textContent = 'Zadejte čas!';
     return;
   }
-
-  const [hodiny, minuty] = casInput.split(":").map(Number);
-  const datum = new Date();
-  datum.setHours(hodiny);
-  datum.setMinutes(minuty + 31);
-
-  const noveHodiny = String(datum.getHours()).padStart(2, "0");
-  const noveMinuty = String(datum.getMinutes()).padStart(2, "0");
-
-  document.getElementById("vysledek").innerText =
-    `Nový čas: ${noveHodiny}:${noveMinuty}`;
+  const [h, m] = input.split(':').map(Number);
+  let date = new Date();
+  date.setHours(h, m + 31, 0, 0);
+  const hh = String(date.getHours()).padStart(2, '0');
+  const mm = String(date.getMinutes()).padStart(2, '0');
+  document.getElementById('vysledek').textContent = `Výsledek: ${hh}:${mm}`;
 }
-dopněn javascript
