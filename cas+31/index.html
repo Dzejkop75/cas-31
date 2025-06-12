@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Čas + 31 minut</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f3f3f3;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      margin: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007aff;
+      color: white;
+      border: none;
+    }
+    #vysledek {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🕒 Čas + 31 minut</h1>
+  <input type="time" id="cas">
+  <br>
+  <button onclick="pricti()">Přičti 31 minut</button>
+  <p id="vysledek"></p>
+
+  <script>
+    function pricti() {
+      const casInput = document.getElementById('cas').value;
+      if (!casInput) {
+        document.getElementById('vysledek').textContent = "Zadej čas prosím.";
+        return;
+      }
+
+      const [hod, min] = casInput.split(':').map(Number);
+      const datum = new Date();
+      datum.setHours(hod);
+      datum.setMinutes(min + 31);
+
+      const noveHod = String(datum.getHours()).padStart(2, '0');
+      const noveMin = String(datum.getMinutes()).padStart(2, '0');
+
+      document.getElementById('vysledek').textContent = `Nový čas: ${noveHod}:${noveMin}`;
+    }
+  </script>
+</body>
+</html>
