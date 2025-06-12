@@ -11,4 +11,3 @@ function pricist31Minut() {
   const mm = String(date.getMinutes()).padStart(2, '0');
   document.getElementById('vysledek').textContent = `Výsledek: ${hh}:${mm}`;
 }
-dopněn javascript
