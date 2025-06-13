@@ -14,8 +14,6 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
       color: #660033;
     }
 
@@ -25,8 +23,6 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(204, 0, 102, 0.3);
-      z-index: 2;
-      position: relative;
     }
 
     .heart {
@@ -72,63 +68,17 @@
       font-size: 1.5rem;
       font-weight: bold;
     }
-
-    /* Květiny */
-    .flowers {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      padding: 10px 0;
-      background: linear-gradient(to top, #dfffdf 0%, transparent 100%);
-    }
-
-    .flower svg {
-      height: 120px;
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="heart">❤️</div>
-    <h1>Čas-plus-minutt</h1>
-    <label for="cas">Zadej čas (HH:MM):</label><br>
+    <h1>Čas-pro-Market</h1>
+    <label for="cas">Zadej čas :</label><br>
     <input type="time" id="cas" />
     <button onclick="pricist31Minut()">Přičíst 31 minut</button>
     <p id="vysledek"></p>
   </div>
-
-  <!-- Květiny -->
-  <div class="flowers">
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="120" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="110" r="10" fill="#ff69b4" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="130" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="120" r="8" fill="#ffa07a" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="125" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="115" r="9" fill="#ba55d3" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="110" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="100" r="12" fill="#ffd700" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="115" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="105" r="11" fill="#ff6347" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="135" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="125" r="7" fill="#20b2aa" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="100" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="90" r="13" fill="#adff2f" /></svg></div>
-    <div class="flower"><svg viewBox="0 0 100 200"><line x1="50" y1="200" x2="50" y2="140" stroke="#66aa66" stroke-width="4"/><circle cx="50" cy="130" r="6" fill="#ffb6c1" /></svg></div>
-  </div>
-
-  <script>
-    function pricist31Minut() {
-      const casInput = document.getElementById("cas").value;
-      const vysledek = document.getElementById("vysledek");
-      if (!casInput) {
-        vysledek.innerText = "Prosím zadej čas.";
-        return;
-      }
-      const [hodiny, minuty] = casInput.split(":").map(Number);
-      const date = new Date();
-      date.setHours(hodiny);
-      date.setMinutes(minuty + 31);
-      const noveHodiny = String(date.getHours()).padStart(2, '0');
-      const noveMinuty = String(date.getMinutes()).padStart(2, '0');
-      vysledek.innerText = `Nový čas: ${noveHodiny}:${noveMinuty}`;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
