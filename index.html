@@ -5,47 +5,46 @@
   <title>Čas-plus-minut</title>
   <style>
     body {
-      background: #ffe6f0;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      color: #660033;
+      background: #f2f4f8;
+      font-family: 'Verdana', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
     }
     h1 {
-      font-size: 2.5rem;
-      color: #cc0066;
-    }
-    label {
-      font-size: 1.2rem;
+      color: #4a90e2;
     }
     input, button {
-      font-size: 1.1rem;
-      padding: 10px;
+      padding: 12px 20px;
+      font-size: 1rem;
       margin: 10px;
-      border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     input {
-      background-color: #fff0f5;
+      background-color: #fff;
     }
     button {
-      background-color: #cc0066;
+      background-color: #4a90e2;
       color: white;
+      border: none;
       cursor: pointer;
     }
     button:hover {
-      background-color: #99004d;
+      background-color: #357abd;
     }
     #vysledek {
       margin-top: 20px;
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.3rem;
     }
   </style>
 </head>
 <body>
-  <h1>Čas-plus-minutt</h1>
-  <label for="cas">Zadej čas (HH:MM):</label><br>
+  <h1>Čas-pro-Marketku</h1>
+  <label for="cas">Zadej čas (HH:MM):</label>
   <input type="time" id="cas" />
   <button onclick="pricist31Minut()">Přičíst 31 minut</button>
   <p id="vysledek"></p>
