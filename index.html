@@ -5,47 +5,80 @@
   <title>Čas-plus-minut</title>
   <style>
     body {
-      background-color: #1c1c1c;
-      color: #e0e0e0;
-      font-family: 'Tahoma', sans-serif;
+      background: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #660033;
+    }
+
+    .container {
       text-align: center;
-      padding-top: 80px;
+      background-color: #fff0f5;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(204, 0, 102, 0.3);
     }
+
+    .heart {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
     h1 {
-      color: #00bcd4;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #cc0066;
     }
+
+    label {
+      font-size: 1.2rem;
+    }
+
     input, button {
-      font-size: 1rem;
-      padding: 10px;
+      font-size: 1.1rem;
+      padding: 10px 20px;
       margin: 10px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
     }
+
     input {
-      background-color: #333;
-      color: #e0e0e0;
+      background-color: #fff;
     }
+
     button {
-      background-color: #00bcd4;
-      color: black;
+      background-color: #cc0066;
+      color: white;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
+
     button:hover {
-      background-color: #0097a7;
+      background-color: #99004d;
     }
+
     #vysledek {
       margin-top: 20px;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>Čas-pro-Marketku</h1>
-  <label for="cas">Zadej čas :</label><br>
-  <input type="time" id="cas" />
-  <button onclick="pricist31Minut()">Přičíst 31 minut</button>
-  <p id="vysledek"></p>
+  <div class="container">
+    <div class="heart">❤️</div>
+    <h1>Čas-pro-Market</h1>
+    <label for="cas">Zadej čas :</label><br>
+    <input type="time" id="cas" />
+    <button onclick="pricist31Minut()">Přičíst 31 minut</button>
+    <p id="vysledek"></p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
