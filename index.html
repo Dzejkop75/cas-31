@@ -73,7 +73,7 @@
       font-weight: bold;
     }
 
-    /* 🌸 Flower Decorations */
+    /* Květiny */
     .flowers {
       position: absolute;
       bottom: 0;
@@ -81,24 +81,35 @@
       height: 200px;
       pointer-events: none;
       z-index: 1;
-    }
-
-    .flower {
-      position: absolute;
-      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
     }
 
     .flower svg {
       height: 200px;
-      opacity: 0.8;
+      opacity: 0.9;
+      animation: grow 3s ease-out forwards;
     }
 
-    .flower.left {
-      left: 10%;
+    .flower:nth-child(2) svg {
+      animation-delay: 0.5s;
+    }
+    .flower:nth-child(3) svg {
+      animation-delay: 1s;
+    }
+    .flower:nth-child(4) svg {
+      animation-delay: 1.5s;
     }
 
-    .flower.right {
-      right: 10%;
+    @keyframes grow {
+      from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+      to {
+        transform: scaleY(1);
+      }
     }
   </style>
 </head>
@@ -112,22 +123,50 @@
     <p id="vysledek"></p>
   </div>
 
-  <!-- 🌼 Flowers -->
+  <!-- Květiny -->
   <div class="flowers">
-    <div class="flower left">
+    <div class="flower">
       <svg viewBox="0 0 100 200">
         <line x1="50" y1="200" x2="50" y2="100" stroke="#66aa66" stroke-width="4"/>
         <circle cx="50" cy="90" r="10" fill="#ff69b4" />
       </svg>
     </div>
-    <div class="flower right">
+    <div class="flower">
       <svg viewBox="0 0 100 200">
         <line x1="50" y1="200" x2="50" y2="100" stroke="#66aa66" stroke-width="4"/>
-        <circle cx="50" cy="90" r="10" fill="#ff69b4" />
+        <circle cx="50" cy="90" r="10" fill="#ffa07a" />
+      </svg>
+    </div>
+    <div class="flower">
+      <svg viewBox="0 0 100 200">
+        <line x1="50" y1="200" x2="50" y2="100" stroke="#66aa66" stroke-width="4"/>
+        <circle cx="50" cy="90" r="10" fill="#ba55d3" />
+      </svg>
+    </div>
+    <div class="flower">
+      <svg viewBox="0 0 100 200">
+        <line x1="50" y1="200" x2="50" y2="100" stroke="#66aa66" stroke-width="4"/>
+        <circle cx="50" cy="90" r="10" fill="#ffd700" />
       </svg>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function pricist31Minut() {
+      const casInput = document.getElementById("cas").value;
+      const vysledek = document.getElementById("vysledek");
+      if (!casInput) {
+        vysledek.innerText = "Prosím zadej čas.";
+        return;
+      }
+      const [hodiny, minuty] = casInput.split(":".map(Number));
+      const date = new Date();
+      date.setHours(hodiny);
+      date.setMinutes(minuty + 31);
+      const noveHodiny = String(date.getHours()).padStart(2, '0');
+      const noveMinuty = String(date.getMinutes()).padStart(2, '0');
+      vysledek.innerText = `Nový čas: ${noveHodiny}:${noveMinuty}`;
+    }
+  </script>
 </body>
 </html>
