@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Čas-plus-minut</title>
-  </head>
-  <body>
-    <h1>Čas-plus-minutt</h1>
-
-    <label for="cas">Zadej čas (HH:MM):</label>
-    <input type="time" id="cas" />
-    <button onclick="pricist31Minut()">Přičíst 31 minut</button>
-
-    <p id="vysledek"></p>
-
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Čas-plus-minut</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      color: #660033;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #cc0066;
+    }
+    label {
+      font-size: 1.2rem;
+    }
+    input, button {
+      font-size: 1.1rem;
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+    }
+    input {
+      background-color: #fff0f5;
+    }
+    button {
+      background-color: #cc0066;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #99004d;
+    }
+    #vysledek {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Čas-plus-minutt</h1>
+  <label for="cas">Zadej čas (HH:MM):</label><br>
+  <input type="time" id="cas" />
+  <button onclick="pricist31Minut()">Přičíst 31 minut</button>
+  <p id="vysledek"></p>
+  <script src="script.js"></script>
+</body>
 </html>
