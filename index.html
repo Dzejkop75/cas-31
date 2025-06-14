@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Čas+">
-  <meta charset="UTF-8" />
   <title>Čas-plus-minut</title>
   <style>
     body {
@@ -26,6 +27,7 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(204, 0, 102, 0.3);
+      max-width: 90vw;
     }
 
     .heart {
@@ -40,19 +42,21 @@
     }
 
     label {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     input, button {
-      font-size: 1.1rem;
-      padding: 10px 20px;
-      margin: 10px;
+      font-size: 1.3rem;
+      padding: 14px 24px;
+      margin: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
     input {
       background-color: #fff;
+      width: 100%;
+      max-width: 300px;
     }
 
     button {
@@ -68,8 +72,25 @@
 
     #vysledek {
       margin-top: 20px;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
+    }
+
+    /* Změny pro malá zařízení */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      input, button {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        width: 90%;
+      }
+
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -82,6 +103,20 @@
     <button onclick="pricist31Minut()">Přičíst 31 minut</button>
     <p id="vysledek"></p>
   </div>
-  <script src="script.js"></script>
+  <script>
+    function pricist31Minut() {
+      const input = document.getElementById("cas").value;
+      if (!input) return;
+
+      const [hod, min] = input.split(":").map(Number);
+      const date = new Date();
+      date.setHours(hod, min + 31);
+
+      const noveHodiny = String(date.getHours()).padStart(2, "0");
+      const noveMinuty = String(date.getMinutes()).padStart(2, "0");
+
+      document.getElementById("vysledek").innerText = `Nový čas: ${noveHodiny}:${noveMinuty}`;
+    }
+  </script>
 </body>
 </html>
